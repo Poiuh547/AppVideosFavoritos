@@ -1,0 +1,44 @@
+<div class="form-group">
+    <div class="card animated flipInY">
+
+        <div align="center">
+            <h1>Selecciona una categoría</h1> 
+          </div>
+
+    <select id="selectOptions" class="form-control"> 
+
+        <% if (data) { 
+            
+            
+            var opcionesFiltro=[""];
+            for(var i = 0; i < opcionesList.length; i++) { 
+                opcionesFiltro.push(opcionesList[i].category);
+            } 
+            %>
+
+            <% for(var i = 0; i < opcionesFiltro.length; i++) { %>
+                <option> <%= opcionesFiltro[i]%> </option>
+            <% } %>
+        <% } %>
+
+
+    </select>
+
+    <button id="myButton" onclick="" class="button"> 
+        Seleccionar 
+    </button>
+
+    <!-- redirecciona según opción-->
+    <script type="text/javascript">
+        var selectOpciones = document.getElementById("selectOptions");
+        document.getElementById("myButton").onclick = function() {
+            if (selectOpciones.value == "Todas") { //si selecciona la primera opcion 
+                location.href = `http://localhost:3000`;
+            } else { //si selecciona cualquier otra opcion
+                //location.href = `http://localhost:3000/${selectOpciones.value}`;
+                location.href = `http://localhost:3000/category/${selectOpciones.value}`;
+            }
+        };
+    </script>
+</div>
+</div>
